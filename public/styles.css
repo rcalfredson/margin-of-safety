@@ -78,17 +78,18 @@ label {
   font-weight: 700;
 }
 
-.input-row {
+.control-row {
+  align-items: end;
   display: flex;
   gap: 12px;
 }
 
 input {
-  min-width: 0;
-  flex: 1;
   border: 1px solid var(--line);
   border-radius: 6px;
+  min-height: 56px;
   padding: 12px 14px;
+  width: 100%;
   font: inherit;
 }
 
@@ -96,23 +97,22 @@ select {
   border: 1px solid var(--line);
   border-radius: 6px;
   font: inherit;
-  min-height: 49px;
+  height: 56px;
   padding: 0 12px;
+  width: 100%;
 }
 
-.provider-select {
-  display: flex;
+.ticker-field {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.provider-field {
   flex: 0 0 190px;
-  flex-direction: column;
-  font-size: 0.82rem;
-  gap: 4px;
-  margin: 0;
 }
 
-.provider-select span {
-  color: var(--muted);
-  font-weight: 700;
-  line-height: 1;
+.submit-field {
+  flex: 0 0 auto;
 }
 
 button {
@@ -123,6 +123,7 @@ button {
   cursor: pointer;
   font: inherit;
   font-weight: 700;
+  min-height: 56px;
   padding: 12px 16px;
 }
 
@@ -267,13 +268,13 @@ li strong {
     padding-top: 20px;
   }
 
-  .input-row,
+  .control-row,
   .section-heading {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .provider-select {
+  .provider-field {
     flex-basis: auto;
   }
 

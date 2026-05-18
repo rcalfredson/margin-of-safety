@@ -37,11 +37,15 @@ export function renderHome({
 
     <section class="screen-form">
       <form method="post" action="/screen">
-        <label for="tickers">Stock tickers</label>
-        <div class="input-row">
-          <input id="tickers" name="tickers" type="text" value="${escapeHtml(tickers)}" placeholder="AAPL, MSFT, BRK-B" autocomplete="off" />
+        <div class="control-row">
+          <div class="ticker-field">
+            <label for="tickers">Stock tickers</label>
+            <input id="tickers" name="tickers" type="text" value="${escapeHtml(tickers)}" placeholder="AAPL, MSFT, BRK-B" autocomplete="off" />
+          </div>
           ${renderProviderSelect(providerOptions, selectedProviderName)}
-          <button type="submit">Fetch snapshots</button>
+          <div class="submit-field">
+            <button type="submit">Fetch snapshots</button>
+          </div>
         </div>
         <p class="hint">Use mock fixtures for reliable local development. Alpha Vantage needs a free API key. Yahoo Finance is unofficial and may be incomplete, unavailable, or rate-limited.</p>
       </form>
@@ -59,16 +63,16 @@ function renderProviderSelect(providerOptions, selectedProviderName) {
   }
 
   return `
-    <label class="provider-select">
-      <span>Provider</span>
-      <select name="providerName">
+    <div class="provider-field">
+      <label for="providerName">Provider</label>
+      <select id="providerName" name="providerName">
         ${providerOptions.map((provider) => `
           <option value="${escapeHtml(provider.name)}" ${provider.name === selectedProviderName ? 'selected' : ''}>
             ${escapeHtml(provider.label)}
           </option>
         `).join('')}
       </select>
-    </label>
+    </div>
   `;
 }
 
